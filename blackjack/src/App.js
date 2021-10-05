@@ -15,6 +15,8 @@ class App extends React.Component {
     pontuacaoJogador: "",
     pontuacaoComputador:"",
     final: false,
+    vitoriasJogador: 0,
+    vitoriasComputador:0,
   }
 
   componentDidMount = () => {
@@ -102,6 +104,18 @@ class App extends React.Component {
 
   encerrarPartida = () => {
     this.setState({final: true})
+
+    if (this.state.pontuacaoJogador > 21){
+      this.setState({vitoriasComputador: this.state.vitoriasComputador + 1})
+     }else if (this.state.pontuacaoComputador > 21){
+       this.setState({vitoriasJogador: this.state.vitoriasJogador + 1})
+     }else {
+      if (this.state.pontuacaoJogador > this.state.pontuacaoComputador){
+        this.setState({vitoriasJogador: this.state.vitoriasJogador + 1})
+      } else if(this.state.pontuacaoJogador < this.state.pontuacaoComputador){
+        this.setState({vitoriasComputador: this.state.vitoriasComputador + 1})
+      }
+  }
   }
 
   atualizaValorComputador = () => {
@@ -162,10 +176,10 @@ class App extends React.Component {
         (this.state.telaDeInicio ? 
           (<Inicio onClickComecar={this.onClickComecar} baralho={this.state.baralho} />)
           :
-          (<Jogo cartasUsuario={this.state.cartasUsuario} onClickComprar={this.onClickComprar} onClickEncerrarJogada={this.onClickEncerrarJogada} />))
+          (<Jogo cartasUsuario={this.state.cartasUsuario} onClickComprar={this.onClickComprar} onClickEncerrarJogada={this.onClickEncerrarJogada} vitoriasComputador={this.state.vitoriasComputador} vitoriasJogador={this.state.vitoriasJogador} />))
         }
         {this.state.final &&
-        (<Final onClickComecar={this.onClickComecar} cartasUsuario={this.state.cartasUsuario} cartasComputador={this.state.cartasComputador} pontuacaoJogador={this.state.pontuacaoJogador} pontuacaoComputador={this.state.pontuacaoComputador} />)
+        (<Final onClickComecar={this.onClickComecar} cartasUsuario={this.state.cartasUsuario} cartasComputador={this.state.cartasComputador} pontuacaoJogador={this.state.pontuacaoJogador} pontuacaoComputador={this.state.pontuacaoComputador} vitoriasComputador={this.state.vitoriasComputador} vitoriasJogador={this.state.vitoriasJogador} />)
         }
       </div>
     );

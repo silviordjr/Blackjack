@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import cartaVerso from '../image/cartaVerso.jpg'
+import mesa from '../image/mesa.jpg'
 
 const MainContainerJogo = styled.div`
-    background-color: #006600;
+    background-image: url(${mesa});
+    /* background-color: #006600; */
     border: 20px solid #74270c;
-    width: 100vw;
-    height: 100vh;
+   /* width: 100vw; */
+    height: 94vh;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: 1fr 100px 1fr;
@@ -40,10 +42,35 @@ const ImagemDasCartasVerso = styled.img`
 
 const ContainerCartasComputador = styled.div`
     grid-column-start: 1;
-    grid-column-end: 6;
+    grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
 
+`
+
+const Placar = styled.div`
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 6;
+
+    background-color: #74270c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5vw;
+
+    @media(max-width: 800px){
+        grid-column-start: 2;
+        margin-left: 4vw;
+        h1{
+            font-size: 20px;
+        }
+        p{
+            font-size: 8px;
+        }
+        }
 `
 
 
@@ -52,9 +79,11 @@ const ContainerCartasUsuario = styled.div`
     height: 220px;
     grid-row-start: 3;
     grid-row-end: 4 ;
+    
 
     @media(max-width: 800px){
             height: 100px;
+            margin: 0;
         }
     
 `
@@ -75,14 +104,14 @@ const BotoesJogo = styled.button`
 `
 
 const ContainerBotoes = styled.div`
-    grid-column-start: 3;
+    grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3 ;
 
     @media(max-width: 800px){
             display: flex;
-            grid-column-start: 2;
+            grid-column-start: 1;
             grid-column-end: 2;
         }
     
@@ -103,11 +132,16 @@ class Jogo extends React.Component {
                     <ImagemDasCartasVerso src={cartaVerso} />
                     <ImagemDasCartasVerso src={cartaVerso} />
                 </ContainerCartasComputador>
+                <Placar>
+                    <h3>Placar</h3>
+                    <p>Jogador {this.props.vitoriasJogador} X {this.props.vitoriasComputador} Computador</p>
+                </Placar>
                 <ContainerBotoes>
                     <BotoesJogo onClick={this.props.onClickComprar} >Comprar Nova Carta</BotoesJogo>
                     <BotoesJogo onClick={this.props.onClickEncerrarJogada}>Encerrar Jogada</BotoesJogo>
                 </ContainerBotoes>
                 {cartasAtivasUsuario}
+
             </MainContainerJogo>
         )
     }

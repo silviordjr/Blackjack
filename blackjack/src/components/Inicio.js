@@ -1,12 +1,13 @@
 import React from "react";
 import react from "react";
 import styled from "styled-components";
+import mesa from '../image/mesa.jpg'
+
 
 const MainContainerInicio = styled.div`
-    background-color: #006600;
+    background-image: url(${mesa});
     border: 20px solid #74270c;
-    width: 100vw;
-    height: 100vh;
+    height: 94vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,6 +16,7 @@ const MainContainerInicio = styled.div`
         @media(max-width: 800px){
             font-size: 16px;
         }
+        color: #74270c;
     }
 `
 
