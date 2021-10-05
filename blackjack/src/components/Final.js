@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import mesa from '../image/mesa.jpg'
 
 const MainContainerJogo = styled.div`
-    background-color: #006600;
+    background-image: url(${mesa});
     border: 20px solid #74270c;
-    width: 100vw;
-    height: 100vh;
+    height: 94vh;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: 1fr 100px 1fr;
@@ -31,6 +31,32 @@ const ContainerCartasComputador = styled.div`
 
     @media(max-width: 800px){
             height: 100px;
+        }
+`
+
+const Placar = styled.div`
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 6;
+
+    background-color: #74270c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5vw;
+
+    @media(max-width: 800px){
+        margin-right: 2vw;
+        margin-left: 3vw;
+
+        h1{
+            font-size: 20px;
+        }
+        p{
+            font-size: 8px;
+        }
         }
 `
 
@@ -60,6 +86,12 @@ const BotoesJogo = styled.button`
         background-color: maroon;
         border-color: maroon;
     }
+
+    @media(max-width: 800px){
+            font-size: 8px;
+            height:40px;
+            width: 15vw;
+        }
 `
 
 const ContainerBotoes = styled.div`
@@ -67,6 +99,7 @@ const ContainerBotoes = styled.div`
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3 ;
+
 
     @media(max-width: 800px){
             display: flex;
@@ -76,43 +109,48 @@ const ContainerBotoes = styled.div`
     
 `
 
-const textoVencedor = styled.p`
-    color: #74270c;
+const TextoVencedor = styled.div`
+    background-color: #74270c;
     font-size: 24px;
+
+    @media(max-width: 800px){
+            font-size: 12px;
+            width: 30vw;
+        }
 `
 
 class Final extends React.Component {
     renderizaVencedor = () => {
         if (this.props.pontuacaoJogador > 21){
             return(
-                <textoVencedor>
+                <TextoVencedor>
                     Computador Venceu! Jogador estourou o limite de 21 pontos!
-                </textoVencedor>
+                </TextoVencedor>
             )
         } else if (this.props.pontuacaoComputador > 21){
             return(
-                <textoVencedor>
+                <TextoVencedor>
                     Jogador venceu! Computador estourou o limite de 21 pontos!
-                </textoVencedor>
+                </TextoVencedor>
             )
         } else {
             if (this.props.pontuacaoJogador > this.props.pontuacaoComputador){
                 return(
-                    <textoVencedor>
+                    <TextoVencedor>
                         Jogador com {this.props.pontuacaoJogador} pontos venceu a partida contra {this.props.pontuacaoComputador} pontos do computador.
-                    </textoVencedor>
+                    </TextoVencedor>
                 )
             } else if(this.props.pontuacaoJogador < this.props.pontuacaoComputador){
                 return(
-                    <textoVencedor>
+                    <TextoVencedor>
                         Computador com {this.props.pontuacaoComputador} pontos venceu a partida contra {this.props.pontuacaoJogador} pontos do jogador.
-                    </textoVencedor>
+                    </TextoVencedor>
                 )
             }else{
                 return(
-                    <textoVencedor>
+                    <TextoVencedor>
                         Empate! Jogador {this.props.pontuacaoJogador} X {this.props.pontuacaoComputador} Computador.
-                    </textoVencedor>
+                    </TextoVencedor>
                 )
             }
         }
@@ -136,6 +174,10 @@ class Final extends React.Component {
         return(
             <MainContainerJogo>
                 {cartasAtivasComputador}
+                <Placar>
+                    <h3>Placar</h3>
+                    <p>Jogador {this.props.vitoriasJogador} X {this.props.vitoriasComputador} Computador</p>
+                </Placar>
                 <ContainerBotoes>
                     {this.renderizaVencedor()}
                     <BotoesJogo onClick={this.props.onClickComecar} >Nova Partida</BotoesJogo>
