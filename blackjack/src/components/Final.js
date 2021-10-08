@@ -37,7 +37,7 @@ const ContainerCartasComputador = styled.div`
 const Placar = styled.div`
     grid-row-start: 2;
     grid-row-end: 3;
-    grid-column-start: 3;
+    grid-column-start: 4;
     grid-column-end: 6;
 
     background-color: #74270c;
@@ -48,6 +48,10 @@ const Placar = styled.div`
     margin-right: 5vw;
 
     @media(max-width: 800px){
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 3;
+        grid-column-end: 6;
         margin-right: 2vw;
         margin-left: 3vw;
 
@@ -95,14 +99,14 @@ const BotoesJogo = styled.button`
 `
 
 const ContainerBotoes = styled.div`
-    grid-column-start: 3;
+    grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3 ;
+    margin-left: 5vw;
 
 
     @media(max-width: 800px){
-            display: flex;
             grid-column-start: 1;
             grid-column-end: 6;
         }
@@ -112,6 +116,7 @@ const ContainerBotoes = styled.div`
 const TextoVencedor = styled.div`
     background-color: #74270c;
     font-size: 24px;
+    margin-bottom: 2vh;
 
     @media(max-width: 800px){
             font-size: 12px;
