@@ -15,8 +15,12 @@ const MainContainerInicio = styled.div`
     h1{
         @media(max-width: 800px){
             font-size: 16px;
+            margin-right: 5vw;
+            margin-left: 5vw;
         }
-        color: #74270c;
+        background-color: #74270c;
+        color: black;
+
     }
 `
 

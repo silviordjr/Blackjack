@@ -51,7 +51,7 @@ const ContainerCartasComputador = styled.div`
 const Placar = styled.div`
     grid-row-start: 2;
     grid-row-end: 3;
-    grid-column-start: 3;
+    grid-column-start: 5;
     grid-column-end: 6;
 
     background-color: #74270c;
@@ -62,6 +62,9 @@ const Placar = styled.div`
     margin-right: 5vw;
 
     @media(max-width: 800px){
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-end: 6;
         grid-column-start: 2;
         margin-left: 4vw;
         h1{
@@ -108,6 +111,7 @@ const ContainerBotoes = styled.div`
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3 ;
+    margin-left: 5vw ;
 
     @media(max-width: 800px){
             display: flex;
