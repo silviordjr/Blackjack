@@ -1,3 +1,31 @@
+<h1 align='center'>Blackjack</h1>
+  
+<h4 align="center"> 
+	🚧  React Select 🚀 Em construção...  🚧
+</h4>
+ 
+### Link para a aplicação
+  
+  <p>O link para a aplicação está disponível em:<p/>
+
+### 🛠 Tecnologias
+
+O projeto *frot-end* foi constrído em **React**, fazendo uso de bibliotecas como o *styled-components*, para a estilização dos componentes, e *axios*, para comunicação com a API **Deck of Cards**. O Link para as tecnologias é fornecido abaixo.
+
+- [React](https://pt-br.reactjs.org/)
+- [Deck of Cards](https://deckofcardsapi.com/)
+- [Styled-components](https://styled-components.com/)
+- [Axios](https://axios-http.com/docs/intro)
+
+### Autor
+
+Silvio Ribeiro Dias Jr.
+
+-[LinkedIn](https://www.linkedin.com/in/silvio-dias-junior/)
+
+<hr/>
+<hr/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
