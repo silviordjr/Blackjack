@@ -5,8 +5,8 @@
 </h4>
  
 ### Link para a aplicação
-  
-  <p>O link para a aplicação está disponível em:<p/>
+
+Clique [aqui](https://parsimonious-queen.surge.sh/) para testar a aplicação.
 
 ### 🛠 Tecnologias
 
